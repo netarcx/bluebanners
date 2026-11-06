@@ -1,0 +1,18 @@
+/* Alternate layout for FIRST's vertical program logo, displayed at 120px tall. */
+.blue-banner--frc {
+  width: 240px;
+  height: 400px;
+  font-size: 20px;
+}
+.blue-banner--frc .blue-banner__logo {
+  top: 8%;
+  width: auto;
+  height: 120px;
+  max-height: none;
+}
+.blue-banner--frc .blue-banner__event--long {
+  font-size: 85%;
+}
+.blue-banner--frc .blue-banner__event span {
+  max-width: none;
+}

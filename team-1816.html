@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team 1816 Blue Banners</title>
+  <link rel="stylesheet" href="bluebanners.css">
+  <link rel="stylesheet" href="bluebanners-frc.css">
+  <style>
+    body { margin: 32px; font: 16px/1.5 Arial, sans-serif; color: #222; }
+    .banners { display: flex; flex-wrap: wrap; gap: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Team 1816 Blue Banners</h1>
+  <p>The Green Machine's awards, including the 2022 state championship.</p>
+  <div class="banners" id="banners"></div>
+  <script src="bluebanners.js"></script>
+  <script>
+    // The Blue Alliance's team history banners plus the 2022 state championship.
+    const banners = [
+      { award: 'Woodie Flowers Finalist Award', event: '2023 Minnesota\n10,000 Lakes\nRegional', longAward: true, longEvent: true },
+      { award: 'Winner', event: '2022 Minnesota State High School League Championship', longEvent: true },
+      { award: 'Winner', event: '2021 Gallium Group' },
+      { award: 'Winner', event: '2020 Lake Superior Regional' },
+      { award: "Chairman's Award", event: '2019 Detroit Championship' },
+      { award: "Chairman's Award Finalist", event: '2019 Detroit Championship', longAward: true },
+      { award: 'Winner', event: '2019 Minnesota North Star Regional' },
+      { award: "Chairman's Award", event: '2019 Lake Superior Regional' },
+      { award: 'Woodie Flowers Finalist Award', event: '2019 Lake Superior Regional', longAward: true },
+      { award: "Chairman's Award Finalist", event: '2018 Detroit Championship', longAward: true },
+      { award: "Chairman's Award", event: '2018 Medtronic Foundation Regional' },
+      { award: 'Woodie Flowers Finalist Award', event: '2017 Minnesota 10000 Lakes Regional', longAward: true, longEvent: true },
+      { award: "Chairman's Award", event: '2017 Lake Superior Regional' },
+      { award: 'Woodie Flowers Award', event: '2015 Championship', longAward: true },
+      { award: "Chairman's Award", event: '2015 Minnesota 10000 Lakes Regional', longEvent: true },
+      { award: "Chairman's Award", event: '2014 Lake Superior Regional' },
+      { award: "Chairman's Award", event: '2012 Minnesota North Star Regional' },
+      { award: "Chairman's Award", event: '2008 Minnesota Regional' },
+      { award: 'Winner', event: '2006 Wisconsin Regional' }
+    ];
+    const container = document.getElementById('banners');
+    banners.forEach(data => {
+      const banner = createBlueBanner({ ...data, logoUrl: 'first-robotics-competition-reverse.png' });
+      banner.classList.add('blue-banner--frc');
+      container.appendChild(banner);
+    });
+  </script>
+</body>
+</html>

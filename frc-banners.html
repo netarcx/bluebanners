@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIRST Robotics Competition banner examples</title>
+  <link rel="stylesheet" href="bluebanners.css">
+  <link rel="stylesheet" href="bluebanners-frc.css">
+  <style>
+    body { margin: 32px; font: 16px/1.5 Arial, sans-serif; color: #222; }
+    .banners { display: flex; flex-wrap: wrap; gap: 20px; }
+  </style>
+</head>
+<body>
+  <h1>FIRST Robotics Competition banners</h1>
+  <p>Examples from team 1816. Edit the data below to make your own.</p>
+  <div class="banners" id="banners"></div>
+  <script src="bluebanners.js"></script>
+  <script>
+    const banners = [
+      { award: 'Woodie Flowers Finalist Award', event: '2023 Minnesota\n10,000 Lakes\nRegional', longAward: true, longEvent: true },
+      { award: 'Winner', event: '2022 Minnesota State High School League Championship', longEvent: true },
+      { award: 'Winner', event: '2021 Gallium Group' },
+      { award: 'Winner', event: '2020 Lake Superior Regional' },
+      { award: "Chairman's Award", event: '2019 Detroit Championship' }
+    ];
+    const container = document.getElementById('banners');
+    banners.forEach(data => {
+      const banner = createBlueBanner({ ...data, logoUrl: 'first-robotics-competition-reverse.png' });
+      banner.classList.add('blue-banner--frc');
+      container.appendChild(banner);
+    });
+  </script>
+</body>
+</html>
