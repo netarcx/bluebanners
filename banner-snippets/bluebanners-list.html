@@ -1,0 +1,127 @@
+<script>
+/* ===================== EDIT HERE ===================== */
+
+// Logo URL: upload first_icon.svg to your website, then paste its web address here
+var LOGO_URL = "PASTE-LOGO-URL-HERE";
+
+// One line per banner. Copy a line to add another banner.
+var BANNERS = [
+  { award: "Winner",              year: "2019", event: "Hudson Valley Regional" },
+  { award: "Chairman's Award",    year: "2022", event: "New York City Regional" },
+];
+
+/* ===================================================== */
+</script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap");
+body { margin: 0; background: transparent; }
+#banners { display: flex; flex-wrap: wrap; gap: 12px; padding: 8px; }
+.blue-banner {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 140px;
+  height: calc(140px * 5 / 3);
+  padding: 8px;
+  background: #0f4bcb;
+  border-radius: 4px;
+  color: #fff;
+  font: 14px/1.2 Roboto, Arial, sans-serif;
+  text-align: center;
+  vertical-align: top;
+  white-space: normal;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .1));
+}
+.blue-banner *, .blue-banner *::before, .blue-banner *::after { box-sizing: border-box; }
+.blue-banner__logo {
+  position: absolute;
+  top: 12.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75px;
+  max-width: none;
+  max-height: 45px;
+  height: auto;
+  margin: 0;
+}
+.blue-banner__award {
+  position: absolute;
+  top: 44%;
+  left: 8px;
+  display: table;
+  width: calc(100% - 16px);
+  height: 19%;
+  margin: 0;
+  font-size: 110%;
+  font-weight: 900;
+}
+.blue-banner__award span, .blue-banner__year span, .blue-banner__event span {
+  display: table-cell;
+  vertical-align: middle;
+}
+.blue-banner__award span { text-transform: uppercase; }
+.blue-banner__award--first span { font-style: italic; }
+.blue-banner__award--long span { font-size: 85%; }
+.blue-banner__award--winner span { font-size: 135%; }
+.blue-banner__year, .blue-banner__event {
+  position: absolute;
+  left: 8px;
+  display: table;
+  width: calc(100% - 16px);
+  text-transform: uppercase;
+}
+.blue-banner__year {
+  top: 64%;
+  height: 7%;
+  font-size: 110%;
+  font-weight: 900;
+}
+.blue-banner__event {
+  top: 72%;
+  height: 20%;
+  font-weight: 900;
+  font-size: 100%;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.blue-banner__event--long { font-size: 75%; line-height: 110%; }
+.blue-banner__event span { white-space: pre-line; max-width: 124px; overflow: hidden; text-overflow: ellipsis; }
+</style>
+
+<div id="banners"></div>
+
+<script>
+(function () {
+  function createBlueBanner(b) {
+    var banner = document.createElement('div');
+    banner.className = 'blue-banner';
+
+    var logo = document.createElement('img');
+    logo.className = 'blue-banner__logo';
+    logo.src = LOGO_URL;
+    logo.alt = '';
+    banner.appendChild(logo);
+
+    function addText(kind, value, isLong) {
+      var container = document.createElement('div');
+      container.className = 'blue-banner__' + kind + (isLong ? ' blue-banner__' + kind + '--long' : '');
+      var text = document.createElement('span');
+      text.textContent = value;
+      container.appendChild(text);
+      banner.appendChild(container);
+      return container;
+    }
+
+    var award = addText('award', b.award, b.award.length > 20);
+    if (b.award.trim().toLowerCase() === 'winner') award.classList.add('blue-banner__award--winner');
+    if (/\bFIRST\b/i.test(b.award)) award.classList.add('blue-banner__award--first');
+    if (b.year) addText('year', b.year, false);
+    addText('event', b.event, b.event.length > 28);
+    return banner;
+  }
+
+  var box = document.getElementById('banners');
+  BANNERS.forEach(function (b) { box.appendChild(createBlueBanner(b)); });
+})();
+</script>

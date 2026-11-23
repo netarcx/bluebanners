@@ -42,3 +42,12 @@ document.getElementById('awards').appendChild(banner);
 ```
 
 Keep the logo at its specified size and preserve its proportions and clear space when adapting the layout. FIRST limits use of the program logo to official team, event, or program materials; consult its current logo and intellectual-property policies for the intended site.
+
+## Copy-and-paste snippets
+
+For sites where you can only paste HTML (Wix "Embed HTML", Squarespace "Code" blocks, WordPress "Custom HTML", etc.), use the self-contained files in `banner-snippets/`. Each one includes the CSS and JavaScript, so no other files are needed besides the logo.
+
+- `banner-snippets/bluebanner-single.html`: one banner. Edit the four lines at the top (`AWARD`, `YEAR`, `EVENT`, `LOGO_URL`).
+- `banner-snippets/bluebanners-list.html`: several banners. Edit `LOGO_URL` and the `BANNERS` list at the top.
+
+Upload `first_icon.svg` to your site and paste its URL into `LOGO_URL`. Sites that block `<script>` tags will show the banner without its text.
